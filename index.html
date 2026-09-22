@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A little something for you</title>
+<meta name="description" content="A private birthday page.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Shown until content is fetched from Supabase -->
+  <div id="loading-state" class="state-message">loading a little something…</div>
+
+  <!-- Shown if nothing has been published yet -->
+  <div id="empty-state" class="state-message" hidden>this page isn't ready yet — check back soon.</div>
+
+  <main id="app" hidden>
+
+    <!-- 1. INTRO -->
+    <section class="intro" id="intro">
+      <div class="blob-field" aria-hidden="true">
+        <span class="blob blob--a"></span>
+        <span class="blob blob--b"></span>
+      </div>
+      <div class="particles" id="intro-particles" aria-hidden="true"></div>
+      <p class="intro-greeting" id="intro-greeting">Hey,</p>
+      <h1 class="intro-title" id="intro-name">you.</h1>
+      <p class="intro-sub" id="intro-sub">Before you scroll… this little corner of the internet was made just for you.</p>
+      <button class="btn" id="open-btn" type="button">Open this →</button>
+      <span class="intro-scroll-hint">or scroll, if you're already curious</span>
+    </section>
+
+    <!-- 2. RELATIONSHIP STORY -->
+    <section class="section" id="story-section">
+      <span class="section-kicker">how it all started</span>
+      <h2 class="section-title reveal" id="story-title">Our story so far</h2>
+      <p class="section-body reveal" id="story-description"></p>
+      <ol class="timeline reveal" id="story-timeline" style="margin-top:2.5rem;"></ol>
+    </section>
+
+    <!-- 3. MEMORY GALLERY -->
+    <section class="section section--full" id="gallery-section">
+      <div class="section" style="padding-bottom:0;">
+        <span class="section-kicker">little moments</span>
+        <h2 class="section-title reveal">Memories worth keeping</h2>
+      </div>
+      <div class="gallery-wrap">
+        <div class="gallery reveal" id="gallery"></div>
+      </div>
+    </section>
+
+    <!-- 4. INSIDE JOKES / NOTES -->
+    <section class="section" id="notes-section" hidden>
+      <span class="section-kicker">just between us</span>
+      <h2 class="section-title reveal">A few things only you'll get</h2>
+      <div class="notes reveal" id="notes"></div>
+    </section>
+
+    <!-- 5. LETTER -->
+    <section class="section" id="letter-section">
+      <div class="glass-card letter-card reveal">
+        <p class="letter-heading">a little letter</p>
+        <p class="letter-body" id="letter-body"></p>
+        <p class="letter-sign" id="letter-sign"></p>
+      </div>
+    </section>
+
+    <!-- 6. SURPRISE / INTERACTION -->
+    <section class="section" id="surprise-section" hidden>
+      <div class="surprise-stage glass-card reveal">
+        <div id="surprise-mount"></div>
+        <p class="surprise-hint" id="surprise-hint"></p>
+        <p class="surprise-message" id="surprise-message"></p>
+      </div>
+    </section>
+
+    <!-- 7. FINALE -->
+    <section class="finale" id="finale">
+      <canvas class="finale-canvas" id="finale-canvas" aria-hidden="true"></canvas>
+      <p class="finale-line" id="finale-line-1">Okay… one last thing.</p>
+      <p class="finale-line" id="finale-line-2">I hope you know how much you mean to the people around you.</p>
+      <p class="finale-line finale-name" id="finale-name"></p>
+    </section>
+
+    <footer class="site-footer">made with care, just for you 🤍</footer>
+  </main>
+
+  <div class="music-player" id="music-player" hidden>
+    <button class="music-toggle" id="music-toggle" type="button" aria-pressed="false" aria-label="Play music">
+      <span class="music-note" id="music-note">♪</span>
+      <span id="music-label">Music</span>
+    </button>
+    <button class="music-mute" id="music-mute" type="button" aria-pressed="false" aria-label="Mute music">🔊</button>
+  </div>
+
+  <div class="modal-backdrop" id="photo-modal" aria-hidden="true">
+    <button class="modal-close" id="modal-close" type="button" aria-label="Close">✕</button>
+    <div class="modal-card">
+      <img class="modal-photo" id="modal-photo" src="" alt="">
+      <p class="modal-caption" id="modal-caption"></p>
+      <p class="modal-note" id="modal-note"></p>
+    </div>
+  </div>
+
+  <audio id="bg-audio" loop preload="none"></audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
